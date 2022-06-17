@@ -20,6 +20,11 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+jar {
+	// plain archive 만들어지지 않도록 설정
+	enabled = false
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
