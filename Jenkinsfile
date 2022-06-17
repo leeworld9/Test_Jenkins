@@ -30,6 +30,11 @@ pipeline {
             steps {
                 sshagent (credentials: ['matching_backend_ssh']) {
                 sh """
+                    hostname
+                """
+                }
+                sshagent (credentials: ['matching_backend_ssh']) {
+                sh """
                     docker pull leeworld9/backend
                 """
                 }
