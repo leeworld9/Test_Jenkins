@@ -10,8 +10,8 @@ pipeline {
         }
         stage('build') {
             steps {
-                dir ('backend') {
-                    sh "chmod +x gradlew"
+                dir ('Test_Jenkins') {
+                    sh "chmod +x ./gradlew"
                     sh "./gradlew clean"
                     sh './gradlew build'
                     sh "docker build -t leeworld9/backend ."
