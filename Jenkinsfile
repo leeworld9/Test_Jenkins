@@ -10,9 +10,9 @@ pipeline {
         }
         stage('build') {
             steps {
-                    sh "sudo chmod +x ./gradlew"
-                    sh "sudo ./gradlew clean"
-                    sh 'sudo ./gradlew build'
+                    sh "chmod +x ./gradlew"
+                    sh "./gradlew clean"
+                    sh './gradlew build'
                     sh "docker build -t leeworld9/backend ."
                 }
         }
