@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    stages {
     environment {
-            TARGET_HOST = "ec2-user@3.38.168.99"
-        }
+        TARGET_HOST = "ec2-user@3.38.168.99"
+    }
+    stages {
         stage('Checkout') {
             steps {
                 git branch: 'master',
