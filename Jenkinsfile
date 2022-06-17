@@ -18,11 +18,12 @@ pipeline {
         }
         stage('pushing to dockerhub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker_hub', usernameVariable: 'docker_user', passwordVariable: 'docker_pwd')]) {
+             withCredentials([usernamePassword(credentialsId: 'docker_hub', usernameVariable: 'docker_user', passwordVariable: 'docker_pwd')]) {
                         sh "docker login -u ${docker_user} -p ${docker_pwd}"
                     }
                 sh "docker push leeworld9/backend"
         }
+
 
         stage('deploy') {
             steps {
