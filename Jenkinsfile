@@ -1,6 +1,9 @@
 pipeline {
     agent any
     stages {
+    environment {
+            TARGET_HOST = "ec2-user@3.38.168.99"
+        }
         stage('Checkout') {
             steps {
                 git branch: 'master',
@@ -30,14 +33,13 @@ pipeline {
             steps {
                 sshagent (credentials: ['matching_backend_ssh']) {
                 sh """
-                    hostname
+                    ssh -o StrictHostKeyChecking=no ${TARGET_HOST} '
+                        hostname
+                        docker pull leeworld9/backend
+                    '
                 """
                 }
-                sshagent (credentials: ['matching_backend_ssh']) {
-                sh """
-                    docker pull leeworld9/backend
-                """
-                }
+
             }
         }
     }
