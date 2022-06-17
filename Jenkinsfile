@@ -27,8 +27,6 @@ pipeline {
                 sh "docker push leeworld9/backend"
              }
         }
-
-
         stage('deploy') {
             steps {
                 sshagent (credentials: ['matching_backend_ssh']) {
@@ -40,7 +38,6 @@ pipeline {
                     '
                 """
                 }
-
             }
         }
     }
