@@ -23,24 +23,16 @@ pipeline {
                     }
                 sh "docker push leeworld9/backend"
         }
-//         stage('deploy') {
-//             steps {
-//                 script {
-//                     try {
-//                         sh '$SSH_CMD $DOCKER stop front-end'
-//                         sh '$SSH_CMD $DOCKER rm front-end'
-//                     } catch (e) {
-//                         sh 'echo "fail to stop and remove container"'
-//                     }
-//                     withCredentials([usernamePassword(credentialsId: 'private_registry_credential', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-//                         sh 'docker login $AWS_PUBLIC_IP:5000 -u $USERNAME -p $PASSWORD'
-//                         sh '$SSH_CMD $DOCKER login localhost:5000 -u $USERNAME -p $PASSWORD'
-//                 }
-//                 sh 'docker push $AWS_PUBLIC_IP:5000/front-end:latest'
-//                 sh '$SSH_CMD $DOCKER pull localhost:5000/front-end:latest'
-//                 sh '$SSH_CMD $DOCKER run -d --name front-end -p 3000:80 localhost:5000/front-end:latest'
-//                 }
-//             }
+
+        stage('deploy') {
+              steps {
+                  sshagent(credentials: ['matching_backend_ssh']) {
+                    sh
+                    '''
+                        docker pull leeworld9/backend
+                    '''
+                  }
+              }
         }
     }
 }
