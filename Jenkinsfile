@@ -15,7 +15,6 @@ pipeline {
                     sh 'sudo ./gradlew build'
                     sh "docker build -t leeworld9/backend ."
                 }
-            }
         }
         stage('pushing to dockerhub') {
             steps {
