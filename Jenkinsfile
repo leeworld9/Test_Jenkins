@@ -12,7 +12,7 @@ pipeline {
             steps {
                     sh "chmod +x ./gradlew"
                     sh "./gradlew clean"
-                    sh './gradlew build'
+                    sh "./gradlew build"
                     sh "docker build -t leeworld9/backend ."
                 }
         }
@@ -20,16 +20,16 @@ pipeline {
             steps {
              withCredentials([usernamePassword(credentialsId: 'docker_hub', usernameVariable: 'docker_user', passwordVariable: 'docker_pwd')]) {
                         sh "docker login -u ${docker_user} -p ${docker_pwd}"
-                    }
+                }
                 sh "docker push leeworld9/backend"
+             }
         }
 
 
         stage('deploy') {
             steps {
                 sshagent (credentials: ['matching_backend_ssh']) {
-                sh
-                """
+                sh """
                     docker pull leeworld9/backend
                 """
                 }
