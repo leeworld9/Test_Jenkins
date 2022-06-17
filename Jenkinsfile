@@ -27,11 +27,11 @@ pipeline {
 
         stage('deploy') {
             steps {
-                sshagent(credentials: ['matching_backend_ssh']) {
-                    sh
-                    '''
-                        docker pull leeworld9/backend
-                    '''
+                sshagent (credentials: ['matching_backend_ssh']) {
+                sh
+                """
+                    docker pull leeworld9/backend
+                """
                 }
             }
         }
