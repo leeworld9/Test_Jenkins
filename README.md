@@ -149,8 +149,9 @@
 
     
 ## 3. 추가 작업 필요
-- 기존 pipeline에서 배포 시 기존에 작동중인 컨테이너 정지와 기존 이미지를 삭제하는 구문을 추가하는 작업이 필요.
-- Docker Hub 업로드시에 버전관리 필요.
+- 젠킨스 서버 : 새로 업데이트 된 빌드를 도커 허브에 푸시할 때, 기존 도커 빌드 이미지 삭제하는 스크립트 필요
+- 배포 서버 : 새로 업데이트 된 빌드를 실행할 때, 기존 컨테이너 중지 & 기존 도커 이미지 삭제하는 스크립트 필요
+- Docker Hub 업로드시에 버전 관리 필요.
     
 ## 4. Reference
 - https://velog.io/@hmyanghm/AWS-EC2%EC%97%90-Jenkins-%EC%84%9C%EB%B2%84-%EA%B5%AC%EC%B6%95
@@ -160,7 +161,7 @@
 - https://chiseoksong.medium.com/aws-ci-cd-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1-%ED%95%98%EA%B8%B0-with-jenkins-4669fdf56068
   - AWS CodeDepoly + AWS S3 이용
 - https://www.dongyeon1201.kr/9026133b-31be-4b58-bcc7-49abbe893044
-  - Docker Hub 이용
+  - Docker Hub 이용 & 버전 관리 스크립트 참고
 - https://velog.io/@hmyanghm/AWS-EC2%EC%97%90-Docker-%EC%84%A4%EC%B9%98
   - 위 자료를 참고하여, 도커 사용 시 권한 문제 해결 가능
 - https://royleej9.tistory.com/m/entry/Jenkins-SSH-%EC%82%AC%EC%9A%A9-pipeline-SSH-Agent
