@@ -152,8 +152,12 @@
 - 젠킨스 서버 : 새로 업데이트 된 빌드를 도커 허브에 푸시할 때, 기존 도커 빌드 이미지 삭제하는 스크립트 필요
 - 배포 서버 : 새로 업데이트 된 빌드를 실행할 때, 기존 컨테이너 중지 & 기존 도커 이미지 삭제하는 스크립트 필요
 - Docker Hub 업로드시에 버전 관리 필요.
+
+## 4. 마침
+- 해당 방식(Docker Hub)으로 사용해본 결과, 로그 저장시에 굉장히 불편함이 많았다.
+- 개인적으로는 바로 ec2 서버에 배포할 수 있는 방식이 더 편하고 작업하기 수월하였다.
     
-## 4. Reference
+## 5. Reference
 - https://velog.io/@hmyanghm/AWS-EC2%EC%97%90-Jenkins-%EC%84%9C%EB%B2%84-%EA%B5%AC%EC%B6%95
   - AWS EC2에 Jenkins 서버 구축
 - https://junhyunny.github.io/information/what-is-ci-cd/
