@@ -60,12 +60,16 @@
    - scope : repo, admin:repo_hook
 
 2. Jenkins에서 pipeline 작성간에 필요한 크리덴셜 추가 
-   1. `Github 액세스 토큰`을 크리덴셜에 추가
+   1. `Github 액세스 토큰`을 크리덴셜에 추가 (젠킨스와 Github 연동을 위한 작업)
       - 2021년 8월 13일부터 비밀번호를 사용한 인증은 불가능하므로 이전단계에서 만든 액세스 토큰을 사용합니다.
       - Kind : Username with Password
       - Username : Github ID
       - Password : Github PW가 아닌 액세스 토큰 정보를 입력합니다.
-   2. `배포할 서버의 ssh key 값`을 크리덴셜에 추가
+      ```
+      ➤ 또는 레포지토리 셋팅에서 `Deploy Key`를 이용하는 방법이 존재 (추천)
+        참고 : https://jojoldu.tistory.com/442
+      ```
+   2. `배포할 서버의 ssh key 값`을 크리덴셜에 추가 (배포를 위한 작업)
       - Kind : SSH Username with private key
       - Username : ssh 계정명 (ex: ec2-user)
       - Private Key : ssh 로그인 시 필요한 pam 파일의 값
