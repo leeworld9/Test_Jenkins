@@ -76,7 +76,7 @@
    3. 빌드파일을 업로드할 `Docker Hub 계정`을 크리덴셜에 추가
 
 3. 빌드 할 레포지토리에 github-webhook 추가
-   - payload url : {Jenkins URL:PORT}/jenkins/github-webhook/
+   - payload url : {Jenkins URL:PORT}/github-webhook/
    - content type : application/json
 
 4. 젠킨스 new item 생성 
